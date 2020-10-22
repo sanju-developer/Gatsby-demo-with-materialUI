@@ -1,8 +1,10 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
-
-// You can delete this file if you're not using it
 import "./src/styles/global.css"
+
+// Material Ui theme
+import muiRootWrapper from "./mui-wrapper"
+// Redux
+import wrapWithProvider from "./src/redux/store"
+
+// export const wrapRootElement = muiRootWrapper
+// export const wrapRootElementForRedux = wrapWithProvider
+export const wrapRootElement = wrapWithProvider

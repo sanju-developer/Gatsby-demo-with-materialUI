@@ -1,11 +1,12 @@
 import { Box, Button, Typography } from "@material-ui/core"
 import { CircularProgress, List, ListItemText } from "@material-ui/core"
+import { navigate } from "gatsby"
 import React, { useEffect } from "react"
 import { connect } from "react-redux"
-import IndexPage from ".."
+import LayoutWrapper from "../../components/layout/layoutWrapper"
 import { GetHomePageDataAction } from "../../redux/actions/actionConstant/homepageAction"
 
-function HomePage(props) {
+const Home = props => {
   const { apiData, getHomePageData } = props
   useEffect(() => {
     getHomePageData()
@@ -16,6 +17,13 @@ function HomePage(props) {
       <Box padding={1} bgcolor="background.paper" component="div">
         <Typography color="text-white"> {props && props.uri}</Typography>
       </Box>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={() => navigate("/home/1")}
+      >
+        Get details
+      </Button>
       <List component="nav" aria-label="secondary mailbox folders">
         {apiData && apiData.length === 0 ? (
           <CircularProgress color="primary" />
@@ -23,9 +31,13 @@ function HomePage(props) {
           apiData &&
           apiData.map(post => (
             <>
-              <ListItemText primary={post.id} />
+              <ListItemText primary={post.id} key={post.id}/>
               <Typography paragraph>{post.title}</Typography>
-              <Button variant="contained" color="primary">
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => navigate(`/home/${post.id}`, { state: post.id })}
+              >
                 Get details
               </Button>
             </>
@@ -48,8 +60,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default IndexPage(connect(mapStateToProps, mapDispatchToProps)(HomePage))
+export default connect(mapStateToProps, mapDispatchToProps)(LayoutWrapper(Home))
 
-HomePage.defaultProps = {
+// export default LayoutWrapper(Home)
+
+Home.defaultProps = {
   apiData: [],
 }

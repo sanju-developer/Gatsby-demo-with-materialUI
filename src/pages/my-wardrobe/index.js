@@ -1,9 +1,9 @@
 import { Typography } from "@material-ui/core"
 import React from "react"
-import IndexPage from ".."
+import LayoutWrapper from "../../components/layout/layoutWrapper"
 
 function MyWardrobe() {
   return <Typography paragraph>My wardrobe page</Typography>
 }
 
-export default IndexPage(MyWardrobe)
+export default (LayoutWrapper(MyWardrobe))

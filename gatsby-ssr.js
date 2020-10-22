@@ -1,7 +1,8 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/ssr-apis/
- */
+// Material Ui theme
+import MuiRootWrapper from "./mui-wrapper"
+// Redux
+import wrapWithProvider from "./src/redux/store"
 
-// You can delete this file if you're not using it
+// export const wrapRootElement = MuiRootWrapper
+// export const wrapRootElementForRedux = wrapWithProvider
+export const wrapRootElement = wrapWithProvider
