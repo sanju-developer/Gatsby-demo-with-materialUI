@@ -63,7 +63,7 @@ function ResponsiveDrawerLayout(props) {
             button
             key={menu.id}
             onClick={() =>
-              navigate(menu.route, { replace: true, state: menu.text })
+              navigate(menu.route, { state: menu.text })
             }
           >
             <ListItemIcon>

@@ -5,9 +5,7 @@ import { topbarWidth } from "../../utils/commonConstant"
 const LayoutWrapper = Component => props => {
   return (
     <>
-      <ResponsiveDrawerLayout>
-        {/* <SEO title="Home" /> */}
-      </ResponsiveDrawerLayout>
+      <ResponsiveDrawerLayout/>
       {Component && (
         <main
           style={{
