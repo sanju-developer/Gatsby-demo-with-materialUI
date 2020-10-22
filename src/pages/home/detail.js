@@ -8,13 +8,15 @@ function DetailPage(props) {
   const [postComments, setPostComments] = useState([])
 
   useEffect(async () => {
-    const res = await GetPostCommentsDataService(props.id)
-    setPostComments(res)
+    if (props.id) {
+      const res = await GetPostCommentsDataService(props.id)
+      setPostComments(res)
+    }
   }, [])
 
   return (
     <>
-    <SEO title="Comments on Post" />
+      <SEO title={`Comments on Post ${props.id}`} />
       DetailPage
       {postComments.length !== 0 &&
         postComments.map(Comment => (
