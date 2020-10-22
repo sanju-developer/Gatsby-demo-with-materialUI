@@ -1,19 +1,22 @@
 import { Box, Button, Typography } from "@material-ui/core"
 import { CircularProgress, List, ListItemText } from "@material-ui/core"
+
 import { navigate } from "gatsby"
 import React, { useEffect } from "react"
 import { connect } from "react-redux"
 import LayoutWrapper from "../../components/layout/layoutWrapper"
+import SEO from "../../components/seo"
 import { GetHomePageDataAction } from "../../redux/actions/actionConstant/homepageAction"
 
 const Home = props => {
   const { apiData, getHomePageData } = props
   useEffect(() => {
-    getHomePageData()
+    if (!apiData) getHomePageData()
   }, [])
 
   return (
     <>
+      <SEO title="Available posts" />
       <Box padding={1} bgcolor="background.paper" component="div">
         <Typography color="text-white"> {props && props.uri}</Typography>
       </Box>
@@ -31,7 +34,7 @@ const Home = props => {
           apiData &&
           apiData.map(post => (
             <>
-              <ListItemText primary={post.id} key={post.id}/>
+              <ListItemText primary={post.id} key={post.id} />
               <Typography paragraph>{post.title}</Typography>
               <Button
                 variant="contained"

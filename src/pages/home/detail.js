@@ -1,19 +1,20 @@
 import { Box, Typography } from "@material-ui/core"
 import React, { useEffect, useState } from "react"
 import LayoutWrapper from "../../components/layout/layoutWrapper"
+import SEO from "../../components/seo"
 import { GetPostCommentsDataService } from "../../services/homepage"
 
 function DetailPage(props) {
   const [postComments, setPostComments] = useState([])
 
-  useEffect(async() => {
+  useEffect(async () => {
     const res = await GetPostCommentsDataService(props.id)
-    
     setPostComments(res)
   }, [])
 
   return (
     <>
+    <SEO title="Comments on Post" />
       DetailPage
       {postComments.length !== 0 &&
         postComments.map(Comment => (
