@@ -1,6 +1,6 @@
 import React from "react"
 import { Router } from "@reach/router"
-import Home from "./home"
+import Home from "./home/index"
 import DetailPage from "./home/detail"
 const Route = () => {
   return (

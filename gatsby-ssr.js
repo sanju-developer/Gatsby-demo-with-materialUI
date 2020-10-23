@@ -1,8 +1,13 @@
+import React from "react"
 // Material Ui theme
 import MuiRootWrapper from "./mui-wrapper"
 // Redux
-import wrapWithProvider from "./src/redux/store"
+import WrapWithProvider from "./src/redux/store"
 
-// export const wrapRootElement = MuiRootWrapper
-// export const wrapRootElementForRedux = wrapWithProvider
-export const wrapRootElement = wrapWithProvider
+export const wrapRootElement = ({ element }) => {
+  return (
+    <MuiRootWrapper>
+      <WrapWithProvider>{element}</WrapWithProvider>
+    </MuiRootWrapper>
+  )
+}

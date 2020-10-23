@@ -20,13 +20,6 @@ const Home = props => {
       <Box padding={1} bgcolor="background.paper" component="div">
         <Typography color="text-white"> {props && props.uri}</Typography>
       </Box>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => navigate("/home/1")}
-      >
-        Get details
-      </Button>
       <List component="nav" aria-label="secondary mailbox folders">
         {apiData && apiData.length === 0 ? (
           <CircularProgress color="primary" />
