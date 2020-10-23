@@ -32,7 +32,7 @@ const Home = props => {
               <Button
                 variant="contained"
                 color="primary"
-                onClick={() => navigate(`/home/${post.id}`, { state: post.id })}
+                onClick={() => navigate(`/home/detail/${post.id}/`, { state: post.id })}
               >
                 Get details
               </Button>
@@ -58,7 +58,6 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(LayoutWrapper(Home))
 
-// export default LayoutWrapper(Home)
 
 Home.defaultProps = {
   apiData: [],
