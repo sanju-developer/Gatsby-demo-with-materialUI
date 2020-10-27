@@ -11,7 +11,7 @@ exports.onCreatePage = ({ page, actions }) => {
   // Make the front page match everything client side.
   // Normally your paths should be a bit more judicious.
   if (page.path === `/`) {
-    page.matchPath = `/*`
+    page.matchPath = `/:lang?/*`
     createPage(page)
   }
 }

@@ -13,7 +13,9 @@ import { makeStyles, useTheme } from "@material-ui/core/styles"
 import Header from "./header"
 import { SidebarMenuNames } from "../../utils/sidebarNames"
 import { navigate } from "gatsby"
+import { Link } from "gatsby-plugin-react-i18next"
 import { drawerWidth } from "../../utils/commonConstant"
+import { connect } from "react-redux"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -59,18 +61,20 @@ function ResponsiveDrawerLayout(props) {
       <div className={classes.toolbar} />
       <List>
         {SidebarMenuNames.map((menu, index) => (
-          <ListItem
-            button
-            key={menu.id}
-            onClick={() =>
-              navigate(menu.route, { state: menu.text })
-            }
-          >
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={menu.text} />
-          </ListItem>
+          <Link to={`${menu.route}`}>
+            <ListItem
+              button
+              key={menu.id}
+              // onClick={() =>
+              //   navigate(`${menu.route}`, { state: menu.text })
+              // }
+            >
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={menu.text} />
+            </ListItem>
+          </Link>
         ))}
       </List>
     </div>
@@ -126,4 +130,10 @@ ResponsiveDrawerLayout.propTypes = {
   window: PropTypes.func,
 }
 
-export default ResponsiveDrawerLayout
+const mapStateToProps = state => {
+  return {
+    lng: state.lng.selectedlng,
+  }
+}
+
+export default connect(mapStateToProps)(ResponsiveDrawerLayout)

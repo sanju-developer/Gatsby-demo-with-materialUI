@@ -3,3 +3,7 @@ export const actionTypes = {
   API_DATA: "API_DATA",
   API_ERROR: "API_ERROR",
 }
+
+export const actionConstants = {
+  CURRENTLNG: "CURRENTLNG",
+}
