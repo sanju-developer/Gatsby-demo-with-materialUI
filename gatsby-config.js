@@ -42,21 +42,21 @@ module.exports = {
             escapeValue: false // not needed for react as it escapes by default
           },
           keySeparator: false,
-          nsSeparator: false
+          nsSeparator: false,
         },
-        // pages: [
-        //   {
-        //     matchPath: ['/home','/:lang?/home/detail/:id'],
-        //     getLanguageFromPath: true,
-        //     excludeLanguages: ['es']
-        //   },
-        //   {
-        //     matchPath: '/preview',
-        //     languages: ['en']
-        //   }
-        // ]
+        pages: [
+          {
+            matchPath: '/:lang?/home/detail/:uid',
+            getLanguageFromPath: true,
+            // excludeLanguages: ['es','en','de']
+          },
+          {
+            matchPath: '/:lang?/home/detail/:uid',
+            languages: ['es','en','de']
+          }
+        ]
       }
-    }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

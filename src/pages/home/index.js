@@ -41,7 +41,7 @@ const Home = props => {
                 variant="contained"
                 color="primary"
                 onClick={() =>
-                  navigate(`/home/detail/${post.id}/`, { state: post.id })
+                  navigate(`/home/detail/${post.id}`, { state: post.id })
                 }
               >
                 {t("Get details")}

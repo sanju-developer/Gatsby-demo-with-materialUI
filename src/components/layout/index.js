@@ -12,10 +12,9 @@ import MailIcon from "@material-ui/icons/Mail"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import Header from "./header"
 import { SidebarMenuNames } from "../../utils/sidebarNames"
-import { navigate } from "gatsby"
-import { Link } from "gatsby-plugin-react-i18next"
 import { drawerWidth } from "../../utils/commonConstant"
 import { connect } from "react-redux"
+import { useI18next } from "gatsby-plugin-react-i18next"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -51,6 +50,7 @@ function ResponsiveDrawerLayout(props) {
   const classes = useStyles()
   const theme = useTheme()
   const [mobileOpen, setMobileOpen] = React.useState(false)
+  const { navigate } = useI18next()
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
@@ -61,20 +61,18 @@ function ResponsiveDrawerLayout(props) {
       <div className={classes.toolbar} />
       <List>
         {SidebarMenuNames.map((menu, index) => (
-          <Link to={`${menu.route}`}>
             <ListItem
               button
               key={menu.id}
-              // onClick={() =>
-              //   navigate(`${menu.route}`, { state: menu.text })
-              // }
+              onClick={() =>
+                navigate(`${menu.route}`, { state: menu.text })
+              }
             >
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
               <ListItemText primary={menu.text} />
             </ListItem>
-          </Link>
         ))}
       </List>
     </div>
