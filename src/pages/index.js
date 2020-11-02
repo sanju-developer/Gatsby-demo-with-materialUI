@@ -1,9 +1,9 @@
 import React from "react"
-import Route from "./routes"
+import Routing from "./routes"
 
 const IndexPage = props => (
   <>
-        <Route {...props}/>
+    <Routing {...props}/>
   </>
 )
 

@@ -48,11 +48,7 @@ module.exports = {
           {
             matchPath: '/:lang?/home/detail/:uid',
             getLanguageFromPath: true,
-            // excludeLanguages: ['es','en','de']
-          },
-          {
-            matchPath: '/:lang?/home/detail/:uid',
-            languages: ['es','en','de']
+            languages: ['de','en','es']
           }
         ]
       }

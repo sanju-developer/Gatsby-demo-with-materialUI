@@ -1,15 +1,18 @@
 import React from "react"
 import { Router } from "@reach/router"
 import Home from "./home/index"
-import DetailPage from './home/detail'
+import DetailPage from "./home/detail"
+import Login from "./login"
+import PrivateRoute from "../components/privateRoute"
 
-const Route = () => {
+const Routing = () => {
   return (
-      <Router basepath="/">
-        <Home path="/" />
-        <Home path="/home/" />
-        <DetailPage path="/home/detail/:id/"/>
-      </Router>
+    <Router basepath="/">
+      <PrivateRoute path="/auth/home" component={Home} />
+      <PrivateRoute path="/auth/home/detail/:id" component={DetailPage} />
+      <Login path="/auth/login" />
+      <Login path="/" />
+    </Router>
   )
 }
-export default Route
+export default Routing
