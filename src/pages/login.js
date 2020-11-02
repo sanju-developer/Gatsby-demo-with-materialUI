@@ -1,11 +1,11 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import TextField from "@material-ui/core/TextField"
 import { Box, Button, FormHelperText } from "@material-ui/core"
 import { useI18next } from "gatsby-plugin-react-i18next"
 import { loginFormFields } from "../utils/commonConstant"
 import { validateEmail } from "../utils/helperFunc"
-import { setLoginTokenToLS } from "../services/auth"
+import { setLoginTokenToLS, getTokenFromLS } from "../services/auth"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,6 +28,12 @@ function Login(props) {
   const classes = useStyles()
   const { navigate } = useI18next()
 
+  useEffect(() => {
+    if (getTokenFromLS()) {
+      navigate("/app/home")
+    }
+  }, [])
+
   const inputHandler = e => {
     const { id, value } = e.target
     setLoginForm(prevState => ({ ...prevState, [id]: value }))
@@ -35,8 +41,8 @@ function Login(props) {
 
   const loginBtnHandler = () => {
     if (validateEmail(loginForm.email) && loginForm.password.length > 5) {
-      navigate("/auth/home")
-      setLoginTokenToLS('tokenValue')
+      navigate("/app/home")
+      setLoginTokenToLS("tokenValue")
     } else setSubmitBtnClicked(true)
   }
 
@@ -55,7 +61,10 @@ function Login(props) {
           helperText={
             !validateEmail(loginForm.email) &&
             isSubmitBtnClicked && (
-              <FormHelperText id="component-error-text" style={{color:'#ff1744'}}>
+              <FormHelperText
+                id="component-error-text"
+                style={{ color: "#ff1744" }}
+              >
                 Please enter a valid email
               </FormHelperText>
             )
@@ -73,7 +82,10 @@ function Login(props) {
           helperText={
             loginForm.password.length < 5 &&
             isSubmitBtnClicked && (
-              <FormHelperText id="component-error-text" style={{color:'#ff1744'}}>
+              <FormHelperText
+                id="component-error-text"
+                style={{ color: "#ff1744" }}
+              >
                 Minimum password should be of 5 character
               </FormHelperText>
             )

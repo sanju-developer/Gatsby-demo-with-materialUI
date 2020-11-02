@@ -34,19 +34,19 @@ const Home = props => {
         ) : (
           apiData &&
           apiData.map(post => (
-            <>
-              <ListItemText primary={post.id} key={post.id} />
+            <Box key={post.id}>
+              <ListItemText primary={post.id} />
               <Typography paragraph>{post.title}</Typography>
               <Button
                 variant="contained"
                 color="primary"
                 onClick={() =>
-                  navigate(`/home/detail/${post.id}`, { state: post.id })
+                  navigate(`/app/home/detail/${post.id}`, { state: post.id })
                 }
               >
                 {t("Get details")}
               </Button>
-            </>
+            </Box>
           ))
         )}
       </List>

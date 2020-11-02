@@ -1,7 +1,7 @@
 import React from "react"
 import Routing from "./routes"
 
-const Auth = props => {
+const App = props => {
   return (
     <>
       <Routing {...props} />
@@ -9,4 +9,4 @@ const Auth = props => {
   )
 }
 
-export default Auth
+export default App

@@ -1,6 +1,6 @@
 export const SidebarMenuNames = [
-  { id: "H1", text: "Home", route: "/home/" },
-  { id: "M2", text: "My wardrobe", route: "/my-wardrobe" },
+  { id: "H1", text: "Home", route: "/app/home" },
+  { id: "M2", text: "My wardrobe", route: "/app/my-wardrobe" },
   // { id: "O3", text: "Orders", route: "/orders" },
   // { id: "My4", text: "My Friends", route: "/my-friends" },
   // { id: "MyB5", text: "My Background", route: "/my-background" },

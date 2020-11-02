@@ -9,11 +9,13 @@ function DetailPage(props) {
   const [postComments, setPostComments] = useState([])
   const { t } = useTranslation()
 
-  useEffect(async () => {
-    if (props.id) {
-      const res = await GetPostCommentsDataService(props.id)
-      setPostComments(res)
-    }
+  useEffect(() => {
+    (async () => {
+      if (props && props.id) {
+        const res = await GetPostCommentsDataService(props.id)
+        setPostComments(res)
+      }
+    })()
   }, [])
 
   return (

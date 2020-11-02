@@ -5,7 +5,7 @@ export function isLoggedIn() {
   return false
 }
 
-function getTokenFromLS() {
+export function getTokenFromLS() {
   return localStorage.getItem("Token")
 }
 
