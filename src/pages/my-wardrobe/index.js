@@ -6,4 +6,4 @@ function MyWardrobe() {
   return <Typography paragraph>My wardrobe page</Typography>
 }
 
-export default (LayoutWrapper(MyWardrobe))
+export default LayoutWrapper(MyWardrobe)
