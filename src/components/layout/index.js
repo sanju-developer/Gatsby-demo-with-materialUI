@@ -43,6 +43,10 @@ const useStyles = makeStyles(theme => ({
   drawerPaper: {
     width: drawerWidth,
   },
+  customeToolbar: {
+    display: "flex",
+    justifyContent:'space-between'
+  },
 }))
 
 function ResponsiveDrawerLayout(props) {

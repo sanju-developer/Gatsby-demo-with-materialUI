@@ -5,6 +5,7 @@ import DetailPage from "./home/detail"
 import Login from "./login"
 import PrivateRoute from "../components/privateRoute"
 import MyWardrobe from "./my-wardrobe/index.js"
+import Covid from "./covid/index.js"
 
 const Routing = (props) => {
   return (
@@ -14,6 +15,7 @@ const Routing = (props) => {
       <PrivateRoute path="/app/my-wardrobe" component={MyWardrobe}/>
       <Login path="/app/login" />
       <Login path="/" />
+      <Covid path="/app/covid"/>
     </Router>
   )
 }

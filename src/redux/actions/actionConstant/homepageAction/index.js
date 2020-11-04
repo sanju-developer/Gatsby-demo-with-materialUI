@@ -6,7 +6,7 @@ export const GetHomePageDataAction = () => {
     try {
       const data = await GetHomePageDataService()
       dispatch({
-        type: actionTypes.API_DATA,
+        type: `home_${actionTypes.API_DATA}`,
         payload: data,
       })
     } catch (err) {

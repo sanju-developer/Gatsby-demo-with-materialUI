@@ -8,4 +8,5 @@ export const SidebarMenuNames = [
   // { id: "G7", text: "Gifts", route: "/gifts" },
   // { id: "Ca8", text: "Calendar", route: "/calendar" },
   // { id: "S9", text: "Settings", route: "/settings" },
+  { id: "O3", text: "Covid19", route: "/app/covid" },
 ]

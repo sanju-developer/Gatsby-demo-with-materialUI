@@ -18,6 +18,11 @@ const theme = createMuiTheme({
       default: '#f5f5f5',
       paper:'#ffffff'
     },
+    text:{
+      covidDanger:'red',
+      covidNormal:'orange',
+      covidSuccess:'green'
+    }
   },
 });
 
